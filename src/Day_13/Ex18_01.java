@@ -12,23 +12,23 @@ abstract class Abs2 extends Abs10{
     public abstract int getB();
 }
 
-abstract class AbsMain extends Abs2{
+class AbsMain extends Abs2{
 
+    @Override
+    public int getB() {
+        return b;
+    }
+
+    @Override
+    public int getA() {
+        return a;
+    }
 }
 
 public class Ex18_01 {
     static void main(String[] args) {
 
-        AbsMain absmain = new AbsMain() {
-            @Override
-            public int getA() {
-                return a;
-            }
-            public int getB(){
-                return b;
-            }
-
-        };
+        AbsMain absmain = new AbsMain();
 
         System.out.println("a= " + absmain.getA());    // 10이 출력되게 한다.
         System.out.println("b= " + absmain.getB());    // 20이 출력되게 한다.
