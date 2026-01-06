@@ -17,9 +17,9 @@ class B extends A{
 
 public class Ex18_02 {
     static void main(String[] args) {
-        B b = new B();
-        System.out.println("x= " + b.method1());
+        A a = new B();
+        System.out.println(a.method1());
     }
 }
-// final 을 선언하면 그 뒤에 어떤 상속도 오버라이딩도 허락하지 않기때문에 final이 부모 클래스인 A클래스에 있어서 B 클래스에서는 적용되지 않았음
+// final 을 선언하면 그 뒤에 어떤 상속도 오버라이딩을 허락하지 않기때문에 final이 부모 클래스인 A클래스에 있어서 B 클래스에서는 적용되지 않았음
 // 그래서 A로 부터 상속받는 자손B 클래스에 final을 선언해줌
