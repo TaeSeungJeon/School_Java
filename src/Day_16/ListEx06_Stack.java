@@ -8,7 +8,7 @@ import java.util.Stack;
        선입후출 First input Last out : FILO
     3. 가장 나중에 입력된 것이 먼저 나가는 구조 Last Input First Output : LIFO
  */
-public class ListEx06 {
+public class ListEx06_Stack {
     static void main(String[] args) {
 
         Stack stack = new Stack();
