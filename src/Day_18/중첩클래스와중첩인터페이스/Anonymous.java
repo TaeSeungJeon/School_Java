@@ -9,7 +9,7 @@ public class Anonymous {
 
         @Override
         void wake() {
-            System.out.println("6시에 일납니다.");
+            System.out.println("6시에 일어납니다.");
             work();
         }
     };  // 첫번째 익명 클래스( 외부 클래스명$번호.class -> Anonymous$1.class )
@@ -24,7 +24,7 @@ public class Anonymous {
 
             @Override
             void wake() {
-                System.out.println("7시에 일납니다.");
+                System.out.println("7시에 일어납니다.");
                 walk();
             }
         };  // 두번째 익명 클래스 ( 외부클래스명$번호.class -> Anonymous$2.class )

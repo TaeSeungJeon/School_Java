@@ -1,0 +1,9 @@
+package Day_18.중첩클래스와중첩인터페이스;
+
+// 익명객체 구현을 위한 인터페이스
+
+public interface Calculatable {
+
+    public int sum();   // abstract가 생략된 추상메서드
+
+}
