@@ -13,7 +13,7 @@ public class UsingThis {
         void method (){
             MyFunInterface4 fi = () -> {
                 System.out.println("otterField = " + outerField);
-                System.out.println("UsingThis.this.outterField = "  + UsingThis.this.outerField);
+                System.out.println("UsingThis.this.outerField = "  + UsingThis.this.outerField);
 
                 System.out.println("innerField = " + innerField);
                 System.out.println("this.innerField = " + this.innerField);
