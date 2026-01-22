@@ -2,5 +2,6 @@
 <project version="4">
   <component name="DataSourcePerFileMappings">
     <file url="file://$PROJECT_DIR$/src/JDBC/SQL/customer.sql" value="d27a0b85-081c-4bba-a291-96296fc41540" />
+    <file url="file://$PROJECT_DIR$/src/java_MyBatis/SQL/tbl_dept.sql" value="d27a0b85-081c-4bba-a291-96296fc41540" />
   </component>
 </project>

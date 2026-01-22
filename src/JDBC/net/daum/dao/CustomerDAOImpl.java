@@ -53,7 +53,7 @@ String sql = null;                  //쿼리문 저장 변수
             sql = "select cus_no from customer where cus_no = ?";
 
             pstmt = con.prepareStatement(sql);
-            pstmt.setInt(1,cus_no);
+            pstmt.setInt(1, cus_no);
 
             rs = pstmt.executeQuery();
             if (rs.next()) {
@@ -88,7 +88,7 @@ String sql = null;                  //쿼리문 저장 변수
             try {
                 if(pstmt != null) pstmt.close();
                 if(con != null) con.close();
-            }catch (Exception e){e.printStackTrace();}
+        }catch (Exception e){e.printStackTrace();}
         }
         return re;
     }

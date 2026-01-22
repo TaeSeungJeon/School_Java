@@ -124,8 +124,6 @@ public class BoardDAOImpl {
             pstmt.setString(1, eb.getBname());
             pstmt.setString(2, eb.getBtitle());
             pstmt.setString(3, eb.getBcont());
-            pstmt.setInt(4, eb.getBno());
-
             re = pstmt.executeUpdate();
 
         } catch (Exception e) {
@@ -149,7 +147,7 @@ public class BoardDAOImpl {
             pstmt = con.prepareStatement(sql);
             pstmt.setInt(1, bno);
             re = pstmt.executeUpdate();
-
+            
         }catch (Exception e) {
             e.printStackTrace();
         }finally {
