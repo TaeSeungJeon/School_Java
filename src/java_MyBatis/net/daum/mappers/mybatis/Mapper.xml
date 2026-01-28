@@ -37,13 +37,23 @@
         select * from tbl_dept order by deptno asc
     </select>
 
-    <!-- 부서정보 추가-->
+    <!-- 부서정보 추가 -->
     <insert id="dept_in" parameterType="java_MyBatis.net.daum.dto.DeptDTO">
     insert into tbl_dept (deptno,dname,loc) values(#{deptno},#{dname},#{loc})
     </insert>
 
-    <select id="dept_info" resultType="java_MyBatis.net.daum.dto.DeptDTO" parameterType="int">
+    <!-- 부서번호 기준 부서정보 검색 -->
+    <select id="dept_info" parameterType="int" resultType="java_MyBatis.net.daum.dto.DeptDTO" >
         select * from tbl_dept where deptno = #{deptno}
     </select>
+
+    <update id="dept_edit" parameterType="java_MyBatis.net.daum.dto.DeptDTO">
+            update tbl_dept set deptno = #{deptno}, dname = #{dname}, loc = #{loc}
+            where deptno = #{deptno}
+    </update>
+
+    <delete id="del_all">
+        delete from tbl_dept
+    </delete>
 
 </mapper>

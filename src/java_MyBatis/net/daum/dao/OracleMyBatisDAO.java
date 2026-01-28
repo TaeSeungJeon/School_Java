@@ -31,7 +31,18 @@ public class OracleMyBatisDAO {
     }
 
     public DeptDTO getFindDeptNo(int deptno, SqlSession sqlSession) {
-        DeptDTO dto = sqlSession.selectOne("dept_info", deptno);
-        return dto;
+        return sqlSession.selectOne("dept_info", deptno);
+    }
+
+    public void updateDept(DeptDTO deptDTO, SqlSession sqlSession) {
+        sqlSession.update("dept_edit", deptDTO);
+    }
+
+    public void deleteDept(DeptDTO dto, SqlSession sqlSession) {
+        sqlSession.delete("dept_del", dto);
+    }
+
+    public void delAllDept(SqlSession sqlSession) {
+        sqlSession.delete("del_all");
     }
 }

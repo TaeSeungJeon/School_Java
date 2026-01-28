@@ -42,15 +42,45 @@ public class OracleMyBatisService {
         }
     }
 
-
     public DeptDTO getFindDeptNo(int deptno) {
         SqlSession sqlSession = MyBatisSessionFactory.getSqlSession();
-        DeptDTO deptDTO = null;
+        DeptDTO dept = null;
         try {
-            deptDTO = this.dao.getFindDeptNo(deptno, sqlSession);
+            dept = this.dao.getFindDeptNo(deptno, sqlSession);
         }finally {
             sqlSession.close();
         }
-        return deptDTO;
+        return dept;
+    }
+
+    public void updateDept(DeptDTO dept) {
+        SqlSession sqlSession = MyBatisSessionFactory.getSqlSession();
+
+        try {
+            this.dao.updateDept(dept, sqlSession);
+            sqlSession.commit();
+        }finally {
+            sqlSession.close();
+        }
+    }
+
+    public void deleteDept(DeptDTO dto) {
+        SqlSession sqlSession = MyBatisSessionFactory.getSqlSession();
+
+        try {
+            this.dao.deleteDept(dto, sqlSession);
+        }finally {
+            sqlSession.close();
+        }
+    }
+
+    public void delAllDept() {
+        SqlSession sqlSession = MyBatisSessionFactory.getSqlSession();
+        try {
+            this.dao.delAllDept(sqlSession);
+            sqlSession.commit();
+        }finally {
+            sqlSession.close();
+        }
     }
 }

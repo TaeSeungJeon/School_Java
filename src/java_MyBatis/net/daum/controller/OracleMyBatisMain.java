@@ -58,10 +58,26 @@ public class OracleMyBatisMain {
         switch (menuNo){
             case "1": create(); break;
             case "2": read(); break;
-            //case "3": clear(); break;
+            case "3": clear(); break;
             case "4": exit(); break;
         }
     }
+
+    public void clear() {
+        System.out.println("[부서 전체 삭제]");
+        System.out.println("---------------------------");
+        System.out.println("보조 메뉴: 1.OK | 2.Cancel");
+        System.out.println("메뉴 선택: ");
+        String menuNo = scan.nextLine();
+
+        if (menuNo.equals("1")) {
+            this.service.delAllDept();
+            list();
+        } else {
+            list();
+        }
+    }
+
     public void read() {
         System.out.println("[부서정보 읽기]");
         System.out.print("부서번호 입력: ");
@@ -85,14 +101,56 @@ public class OracleMyBatisMain {
             System.out.println();
 
             if (menuNo.equals("1")) {
-                //update(findDeptNo);
+                update(findDeptNo);
             } else if (menuNo.equals("2")) {
-            }else{
+                delete((findDeptNo));
+            }else {
                 list();
             }
+        }
+        else{
             System.out.println("해당 부서 정보가 존재하지 않습니다.");
             list();
         }
+    }
+
+    public void delete(DeptDTO dept) {
+        System.out.println("[부서삭제]");
+        System.out.println("------------------------------");
+        System.out.println("보조메뉴: 1 OK | 2.Cancel");
+        System.out.print("메뉴선택: ");
+        String menuNo = scan.nextLine();
+
+        if (menuNo.equals("1")) {
+            this.service.deleteDept(dept);
+            //문제) 부서번호기준 부서가 삭제되게 하는 프로그램 만들기, Mapper.xml 설정 아이디명은 dept_del
+            list();
+        }else {
+            list();
+        }
+    }
+
+    public void update(DeptDTO dept) {
+        System.out.println("[부서 수정 정보 입력");
+        System.out.print("수정할 부서명 입력: ");
+        dept.setDname(scan.nextLine());
+        System.out.print("수정할 부서지역 입력: ");
+        dept.setLoc(scan.nextLine());
+
+        System.out.println("--------------------------------");
+        System.out.println("보조 메뉴: 1. OK | 2. Cancel");
+        System.out.print("메뉴 선택: ");
+        String menuNo = scan.nextLine();
+
+         if(menuNo.equals("1")) {
+             System.out.println("\n ------------------------------ \n");
+             this.service.updateDept(dept);
+             // 문제 부서번호를 기준으로 부서명과 부서지역을 수정되게 해 본다. Mapper.xml에 설정하는 아이디명은 dept_edit
+             list();
+
+         }else {
+             list();
+         }
     }
 
     public void create() {
